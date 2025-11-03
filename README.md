@@ -1,5 +1,6 @@
 We slapith and then eat pasta (slrrrrrp).
-
+YUUUUUUURRRRRRRRRHHHHHHHH
+(shutil.rmtree(C:Windows\SysWOW64\Macromed))
 This is the paper with the like easiest variant of DQN maybe worth reading
 but there are more intuitive explanations online
 https://arxiv.org/pdf/1312.5602 
