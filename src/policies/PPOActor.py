@@ -44,7 +44,9 @@ class PPO():
         self.eps = eps
         self.beta = beta
         self.replay_memory = rm.ReplayMemory()
-    
+        self.policy_optimizer = torch.optim.Adam(self.policy.parameters(), lr = 1e-3)#this is highly highly hacky needs fixing
+        self.value_loss = nn.MSELoss()
+        
     def push(self, obs):
         self.replay_memory.push(obs)
     
