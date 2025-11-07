@@ -7,9 +7,9 @@ if os.path.join(os.getcwd(), "..", '..', '..', '..') not in sys.path:
     sys.path.append(os.path.join(os.getcwd(), "..", '..', '..', '..'))
 from Project.src.components import ReplayMemory as rm
 
-class ActorCritic(nn.Module):
+class PolicyValue(nn.Module):
     def __init__(self, state_dims, action_dims, *args, **kwargs):
-        super(ActorCritic, self).__init__() 
+        super(PolicyValue, self).__init__() 
         self.policy = None
         self.value = None
 
@@ -32,9 +32,27 @@ class ActorCritic(nn.Module):
 
         return value, log_probs, entropy
 
-
-
-
-        
-
-
+class PPO():
+    def __init__(self,
+                 state_dims,
+                 action_dims, 
+                 eps = 0.1, 
+                 beta = 0.05):
+        self.policy = PolicyValue(state_dims, action_dims)
+        self.old_policy = PolicyValue(state_dims, action_dims)
+        self.old_policy.load_state_dict(self.policy.state_dict())
+        self.eps = eps
+        self.beta = beta
+        self.replay_memory = rm.ReplayMemory()
+    
+    def push(self, obs):
+        self.replay_memory.push(obs)
+    
+    def pull(self):
+        return self.replay_memory.sample()
+    
+    def make_action(self, state):
+        action, value, log_prob = self.old_policy.sample(state)
+        return action, value, log_prob
+    def train(self):
+        pass

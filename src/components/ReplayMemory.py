@@ -1,16 +1,15 @@
 import random as rand
-from collections import deque
 from collections import namedtuple
 import torch
 
-transition = namedtuple('Transition', ['state', 'action', 'next_state', 'reward'])
+Transition = namedtuple('Transition', ['state', 'action', 'next_state', 'reward'])
 
 class ReplayMemory():
-    def __init__(self, capacity):
-        self.memory = deque([], maxlen = capacity)
+    def __init__(self):
+        self.memory = []
 
     def push(self, *args):
-        self.memory.append(transition(*args))
+        self.memory.append(Transition(*args))
     
     def sample(self, batch_size):
         return rand.sample(self.memory, batch_size)
