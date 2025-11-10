@@ -50,11 +50,15 @@ class PPO():
     def push(self, obs):
         self.replay_memory.push(obs)
     
-    def pull(self):
-        return self.replay_memory.sample()
+    def pull(self, batch_size):
+        return self.replay_memory.sample(batch_size)
     
-    def make_action(self, state):
-        action, value, log_prob = self.old_policy.sample(state)
+    def make_action(self, batch_size):
+        action, value, log_prob = self.old_policy.sample(batch_size)
         return action, value, log_prob
-    def train(self):
-        pass
+    def train(self, batch_size):
+        old_actions, old_values, old_probs = self.old_policy.sample(batch_size)
+
+        
+
+
